@@ -916,26 +916,26 @@ body {
   }
 
   /* 3. Dropdown layout mapping matching your exact HTML class selector */
-  .nav-links {
-    display: none !important; /* Kept hidden until opened */
-    position: absolute !important;
-    top: 70px !important;
-    left: 0 !important;
-    width: 100% !important;
-    background-color: #0b0f19 !important; /* Solid backdrop stops content overlap bleeding */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 24px !important;
-    z-index: 999 !important;
-    margin: 0 !important;
-  }
+  /* Example mobile state (Inside your media query) */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 60px; /* Adjust based on navbar height */
+        right: -100%; /* Hidden by default off-screen */
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: var(--bg-main); /* Makes sure background matches theme */
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s ease;
+    }
 
-  /* 4. The Active state layout configuration */
-  .nav-links.active {
-    display: flex !important;
-    flex-direction: column !important; /* Drops list items into a neat, vertical column stack */
-    align-items: center !important;
-    gap: 20px !important; /* Spreads compressed items safely apart */
-  }
+    /* THIS IS THE CRITICAL PART: This slides it into view when clicked */
+    .nav-links.active {
+        right: 0; 
+    }
+}
+
 
   /* Assure internal elements and buttons fill out columns smoothly */
   .nav-links li {
