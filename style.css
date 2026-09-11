@@ -879,23 +879,35 @@ body {
 }
 /*-------MOBILE FIX---------*/
 /*-------MOBILE FIX---------*/
+
+/*-------MOBILE FIX---------*/
 @media (max-width: 768px) {
-  /* 1. Unhide and render the hamburger icon */
+  /* 1. Sync container context so elements don't squash horizontally */
+  .nav-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: relative;
+    width: 100%;
+  }
+
+  /* 2. Fix Hamburger Menu styling using your exact HTML class name (.bar) */
   .menu-toggle {
     display: flex !important;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 30px;
-    height: 22px;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 26px;
+    height: 18px;
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1001; /* Keeps it above the popout pane */
+    padding: 0;
+    z-index: 1001;
   }
 
-  /* Force physical visual structure onto the layout lines */
-  .menu-toggle span {
+  /* Force visibility onto your menu lines */
+  .menu-toggle .bar {
     display: block !important;
     height: 3px !important;
     width: 100% !important;
@@ -903,33 +915,40 @@ body {
     border-radius: 3px;
   }
 
-  /* 2. Fix your active mobile drop-down menu panel */
+  /* 3. Dropdown layout mapping matching your exact HTML class selector */
   .nav-links {
-    display: none !important; /* Hide standard layout links by default on mobile */
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background-color: #0b0f19 !important; /* Matches your --bg-main theme */
+    display: none !important; /* Kept hidden until opened */
+    position: absolute !important;
+    top: 70px !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: #0b0f19 !important; /* Solid backdrop stops content overlap bleeding */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 30px 20px !important;
-    z-index: 999;
+    padding: 24px !important;
+    z-index: 999 !important;
+    margin: 0 !important;
   }
 
-  /* When the panel gains the active state, expand into a vertical list stack */
+  /* 4. The Active state layout configuration */
   .nav-links.active {
     display: flex !important;
-    flex-direction: column !important; 
+    flex-direction: column !important; /* Drops list items into a neat, vertical column stack */
     align-items: center !important;
-    gap: 24px !important; /* Gives breathing room to compressed links */
+    gap: 20px !important; /* Spreads compressed items safely apart */
   }
 
-  /* Give structural links proper visibility */
-  .nav-links a {
-    font-size: 1.1rem !important;
-    color: #9CA3AF !important;
+  /* Assure internal elements and buttons fill out columns smoothly */
+  .nav-links li {
     width: 100%;
     text-align: center;
-    padding: 10px 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: block !important;
+    font-size: 1.1rem !important;
+    color: #9CA3AF !important;
+    padding: 8px 0;
+    width: 100%;
   }
 }
