@@ -884,7 +884,7 @@ body {
 
     }
     #navlinks.active{
-        display: none !important;
+        display: flex !important;
         position: absolute;
         top: 70px;
         left: 0;
@@ -893,10 +893,16 @@ body {
         flex-direction: column;
         padding: 20px;
         z-index: 9999;
-        gap: 6px;
+        gap: 16px;
     }
     .nav-links.active{
-        display: flex !important;
+    display: flex !important;
+    flex-direction: column !important; /* Forces links to stack vertically instead of side-by-side */
+    text-align: center;
+    width: 100%;
+}
+
+   
     }
 
     .hero .section:first-of-type{
@@ -913,7 +919,7 @@ body {
     .menu-toggle{
         display: flex;
     }
-   /* REPLACE WITH THIS: */
+
 .hero-glow{
     min-height: auto !important;
     padding-top: 0 !important;       /* Removes the unwanted top gap */
