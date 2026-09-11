@@ -892,12 +892,14 @@ body {
 
     .hero .section:first-of-type{
         padding-top: 70px !important;
+        padding-bottom: 20px !important;
+        height: auto !important;
         min-height: auto !important;
         margin-top: 0 !important;
     }
 
-    .hero::before, .hero-glow, .blur, [class*="hero-glow"], [class*="blur"], [class*="bg-"]{
-        height: 12opx !important;
+    .hero::before, .glow, .blur, [class*="hero-glow"], [class*="blur"], [class*="bg-"]{
+        height: 120px !important;
     }
     .menu-toggle{
         display: flex;
