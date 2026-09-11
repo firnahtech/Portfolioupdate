@@ -822,7 +822,7 @@ body {
         grid-template-columns: 1fr !important; /* Switches layout from sideways to vertical stack */
         gap: 24px !important;
         text-align: center;
-        padding-top: 130px; /* Reduces excessive top spacing on mobile screens */
+        padding-top: 50px; /* Reduces excessive top spacing on mobile screens */
     }
 
     .hero-content h1 {
