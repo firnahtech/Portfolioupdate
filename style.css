@@ -947,9 +947,10 @@ body {
   .nav-links a {
     display: block !important;
     font-size: 1.1rem !important;
-    color: #9CA3AF !important;
-    padding: 8px 0;
-    width: 100%;
+    width: 100%;/* Add this right below line 945 where your ".nav-links li" block ends */
+    color: #F3F4F6 !important; /* Forces text color to a bright, readable light-grey */
+    display: block !important;
+    padding: 15px 0;
   }
     .navbar {
     position: fixed;
