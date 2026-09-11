@@ -878,55 +878,58 @@ body {
     }
 }
 /*-------MOBILE FIX---------*/
-@media (max-width: 768px){
-    .menu-toggle{
-        display: block !important;
-
-    }
-    #navlinks.active{
-        display: flex !important;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgb(10, 10, 15);
-        flex-direction: column;
-        padding: 20px;
-        z-index: 9999;
-        gap: 16px;
-    }
-    .nav-links.active{
+/*-------MOBILE FIX---------*/
+@media (max-width: 768px) {
+  /* 1. Unhide and render the hamburger icon */
+  .menu-toggle {
     display: flex !important;
-    flex-direction: column !important; /* Forces links to stack vertically instead of side-by-side */
-    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; /* Keeps it above the popout pane */
+  }
+
+  /* Force physical visual structure onto the layout lines */
+  .menu-toggle span {
+    display: block !important;
+    height: 3px !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
+    border-radius: 3px;
+  }
+
+  /* 2. Fix your active mobile drop-down menu panel */
+  .nav-links {
+    display: none !important; /* Hide standard layout links by default on mobile */
+    position: absolute;
+    top: 70px;
+    left: 0;
     width: 100%;
+    background-color: #0b0f19 !important; /* Matches your --bg-main theme */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px 20px !important;
+    z-index: 999;
+  }
+
+  /* When the panel gains the active state, expand into a vertical list stack */
+  .nav-links.active {
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center !important;
+    gap: 24px !important; /* Gives breathing room to compressed links */
+  }
+
+  /* Give structural links proper visibility */
+  .nav-links a {
+    font-size: 1.1rem !important;
+    color: #9CA3AF !important;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
 }
-
-   
-    }
-
-    .hero .section:first-of-type{
-        padding-top: 70px !important;
-        padding-bottom: 20px !important;
-        height: auto !important;
-        min-height: auto !important;
-        margin-top: 0 !important;
-    }
-
-    .hero::before, .glow, .blur, [class*="blur"], [class*="bg-"]{
-    height: 120px !important;
-}
-    .menu-toggle{
-        display: flex;
-    }
-
-.hero-glow{
-    min-height: auto !important;
-    padding-top: 0 !important;       /* Removes the unwanted top gap */
-    padding-bottom: 0 !important;    /* Removes the unwanted bottom gap */
-    overflow: hidden;
-    margin-bottom: 0 !important;
-}
-
-}
-
