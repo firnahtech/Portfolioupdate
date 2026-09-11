@@ -913,13 +913,14 @@ body {
     .menu-toggle{
         display: flex;
     }
-    .hero-glow{
-        min-height: auto !important;
-        padding-top: 80px !important;
-        padding-bottom: 40px !important;
-        overflow: hidden;
-        margin-bottom: 10px;
-    }
+   /* REPLACE WITH THIS: */
+.hero-glow{
+    min-height: auto !important;
+    padding-top: 0 !important;       /* Removes the unwanted top gap */
+    padding-bottom: 0 !important;    /* Removes the unwanted bottom gap */
+    overflow: hidden;
+    margin-bottom: 0 !important;
+}
 
 }
 
