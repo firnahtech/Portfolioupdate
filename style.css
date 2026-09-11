@@ -918,7 +918,7 @@ body {
   /* 3. Dropdown layout mapping matching your exact HTML class selector */
   /* Example mobile state (Inside your media query) */
 @media (max-width: 768px) {
-    .nav-links {
+    #nav-links {
         position: fixed;
         top: 60px; /* Adjust based on navbar height */
         right: -100%; /* Hidden by default off-screen */
@@ -931,20 +931,20 @@ body {
     }
 
     /* THIS IS THE CRITICAL PART: This slides it into view when clicked */
-    .nav-links.active {
+    #nav-links.active {
         right: 0; 
     }
 }
 
 
   /* Assure internal elements and buttons fill out columns smoothly */
-  .nav-links li {
+  #nav-links li {
     width: 100%;
     text-align: center;
     list-style: none;
   }
 
-  .nav-links a {
+  #nav-links a {
     display: block !important;
     font-size: 1.1rem !important;
     width: 100%;/* Add this right below line 945 where your ".nav-links li" block ends */
