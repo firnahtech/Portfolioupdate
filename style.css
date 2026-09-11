@@ -951,4 +951,15 @@ body {
     padding: 8px 0;
     width: 100%;
   }
+    .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999 !important; /* Force navbar to float completely above layout reveal animations */
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
 }
