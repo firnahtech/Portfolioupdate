@@ -829,11 +829,14 @@ body {
         font-size: 2.25rem !important; /* Scales down massive headers so they don't break lines awkwardly */
         line-height: 1.3;
     }
+   /* Replace your previous .hero-glow block with this: */
   .hero-glow {
-    box-shadow: 0 0 40px 10px rgba(0, 227, 255, 0.5) !important; /* Reduces the shadow radius */
-    /* OR if using filter: */
-    /* filter: blur(40px) !important; */
-}
+    width: 280px !important;       /* Scales down structural footprint */
+    height: 200px !important;
+    top: 0% !important;            /* Re-aligns alignment cleanly behind mobile elements */
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.05) 60%, transparent 100%) !important;
+  }
+
 
 
     .lead-text {
@@ -904,9 +907,9 @@ body {
         margin-top: 0 !important;
     }
 
-    .hero::before, .glow, .blur, [class*="hero-glow"], [class*="blur"], [class*="bg-"]{
-        height: 120px !important;
-    }
+    .hero::before, .glow, .blur, [class*="blur"], [class*="bg-"]{
+    height: 120px !important;
+}
     .menu-toggle{
         display: flex;
     }
