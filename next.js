@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- Mobile Hamburger Navigation Engine ---
     const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('navLinks'); // <-- Double check this has a capital L!
+const navLinks = document.querySelector('.nav-links');
+// <-- Double check this has a capital L!
 
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
