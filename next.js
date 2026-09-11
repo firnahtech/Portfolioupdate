@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- Mobile Hamburger Navigation Engine ---
     const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('navLinks');
+const navLinks = document.getElementById('navLinks'); // <-- Double check this has a capital L!
 
-    menuToggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
 
 
         // Auto close side panel when clicking links
