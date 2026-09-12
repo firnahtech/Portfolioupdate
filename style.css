@@ -914,7 +914,7 @@ body {
     }
 
     /* 3. Corrected Dropdown Layout (Synchronized with class name .nav-links) */
-    .nav-links {
+    #nav-links {
         position: fixed !important;
         top: 70px; /* Match navbar height height precisely */
         right: -100%; /* Hidden off-screen by default */
@@ -931,18 +931,18 @@ body {
     }
 
     /* This slides it cleanly into view over the page content when active */
-    .nav-links.active {
+    #nav-links.active {
         right: 0 !important;
     }
 
     /* Assure internal elements and buttons fill out columns smoothly */
-    .nav-links li {
+    #nav-links li {
         width: 100%;
         text-align: center;
         list-style: none;
     }
 
-    .nav-links a {
+    #nav-links a {
         display: block !important;
         font-size: 1.25rem !important; 
         color: #F3F4F6 !important; /* Forces text color to a bright, readable light-grey */
@@ -951,7 +951,7 @@ body {
         transition: color 0.2s ease;
     }
     
-    .nav-links a:hover {
+    #nav-links a:hover {
         color: var(--primary-cyan) !important;
     }
 
