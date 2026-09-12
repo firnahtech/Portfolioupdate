@@ -935,12 +935,14 @@ body {
         text-align: center;
     }
 
-    .nav-links a {
-        display: block !important;
-        font-size: 1.3rem !important;
-        color: #F3F4F6 !important;
-        padding: 14px 0;
-        width: 100%;
-    }
+     .nav-links a {
+    display: block !important;
+    font-size: 1.5rem !important; 
+    color: #FFFFFF !important; /* Overrides dark themes with pure solid white text */
+    padding: 20px 0 !important;
+    width: 100%;
+    opacity: 1 !important; /* Eliminates accidental transparency issues */
+    visibility: visible !important;
+  }
 
 }
