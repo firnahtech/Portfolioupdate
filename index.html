@@ -250,4 +250,22 @@
         </div>
     </div>
 </footer>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        // Toggles the visibility class on the links container
+        navLinks.classList.toggle('active');
+        
+        // Optional: Animate the burger bar pieces into an 'X' close graphic
+        menuToggle.classList.toggle('is-open');
+      });
+    }
+  });
+</script>
+
 </body>
