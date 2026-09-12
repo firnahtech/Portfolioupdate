@@ -90,6 +90,11 @@ body {
     border-color: var(--primary-cyan);
     transform: translateY(-2px);
 }
+/* Fixes page alignment when jumping directly to an anchor section */
+section {
+  scroll-margin-top: 70px; /* Matches the exact height of your fixed header bar */
+}
+
 
 .section-header {
     text-align: center;
