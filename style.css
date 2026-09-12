@@ -128,6 +128,7 @@ body {
     height: 70px;
     margin: 0 auto;
     padding: 0 24px;
+    width:100%;
 }
 
 .logo {
@@ -165,9 +166,9 @@ body {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
-    height: 20px;
-    background: none;
+    width: 26px;
+    height: 18px;
+    background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
@@ -182,9 +183,11 @@ body {
 }
 
 .menu-toggle .bar {
-    width: 25px;
-    height: 2px;
+    display:block;
+    width: 100%;
+    height: 3px;
     background-color: var(--text-primary);
+    border-radius: 3px;
     transition: all 0.3s ease;
 }
 
@@ -877,93 +880,57 @@ body {
         padding: 24px 16px !important; /* Shrinks the inner margins of your contact form cards */
     }
 }
-/*-------MOBILE FIX---------*/
-/*-------MOBILE FIX---------*/
-@media (max-width: 768px) { 
-    /* 1. Sync container context */
+
+/* =================================*********
+   CRITICAL RESPONSIVE ADAPTIVE BREAKPOINT
+============================================ */
+@media (max-width: 768px) {
+    /* 1. Force the layout bar to display items on polar opposite sides */
     .nav-container {
         display: flex !important;
         flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
-        position: relative;
-        width: 100%;
     }
 
-    /* 2. Fix Hamburger Trigger Display */
+    /* 2. Unhide the structural hamburger box element */
     .menu-toggle {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        width: 26px;
-        height: 18px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
+        display: flex !important; 
+        z-index: 100000; /* Stays over drawer layer panel */
     }
 
-    /* Force visibility onto your menu lines */
-    .menu-toggle .bar {
-        display: block !important;
-        height: 3px !important;
-        width: 100% !important;
-        background-color: #ffffff !important;
-        border-radius: 3px;
-    }
-
-    /* 3. Corrected Dropdown Layout (Synchronized with class name .nav-links) */
-    #nav-links {
+    /* 3. Re-position desktop link items to mobile app sheet drawer format */
+    .nav-links {
         position: fixed !important;
-        top: 70px; /* Match navbar height height precisely */
-        right: -100%; /* Hidden off-screen by default */
+        top: 70px;
+        right: -100%; /* Securely shifts navigation out of screen visibility scale */
         width: 100%;
         height: calc(100vh - 70px);
-        background-color: var(--bg-main) !important; 
+        background-color: #0B0F19 !important; /* Matches var(--bg-main) directly */
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        padding-top: 60px !important;
+        padding-top: 50px !important;
         gap: 24px !important;
-        transition: right 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+        transition: right 0.3s ease-in-out !important;
     }
 
-    /* This slides it cleanly into view over the page content when active */
-    #nav-links.active {
-        right: 0 !important;
+    /* 4. The trigger mechanism shifted via your Javascript toggle layer */
+    .nav-links.active {
+        right: 0 !important; /* Slides page directly into canvas view window */
     }
 
-    /* Assure internal elements and buttons fill out columns smoothly */
-    #nav-links li {
+    .nav-links li {
         width: 100%;
         text-align: center;
-        list-style: none;
     }
 
-    #nav-links a {
+    .nav-links a {
         display: block !important;
-        font-size: 1.25rem !important; 
-        color: #F3F4F6 !important; /* Forces text color to a bright, readable light-grey */
-        padding: 12px 0;
+        font-size: 1.3rem !important;
+        color: #F3F4F6 !important;
+        padding: 14px 0;
         width: 100%;
-        transition: color 0.2s ease;
-    }
-    
-    #nav-links a:hover {
-        color: var(--primary-cyan) !important;
-    }
-
-    /* 4. Layer Ordering Safety Factor */
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 99999 !important; /* Forces layout to float above animations */
-        background: rgba(11, 15, 25, 0.95) !important; /* Slightly darker opacity for menu contrast */
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border-color);
     }
 }
