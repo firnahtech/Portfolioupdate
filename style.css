@@ -903,22 +903,8 @@ body {
     
 
     /* 4. The trigger mechanism shifted via your Javascript toggle layer */
-    .nav-links.active {
-        right: 0 !important; /* Slides page directly into canvas view window */
-    }
 
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
 
-    .nav-links a {
-        display: block !important;
-        font-size: 1.3rem !important;
-        color: #F3F4F6 !important;
-        padding: 14px 0;
-        width: 100%;
-    }
       /* 3. Re-position desktop link items to mobile app sheet drawer format */
   .nav-links {
     position: fixed !important;
@@ -942,5 +928,18 @@ body {
     right: 0 !important;      /* Slides page directly into canvas view window */
     visibility: visible;      /* FIX: Restores rendering visibility state when activated */
   }
+    
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block !important;
+        font-size: 1.3rem !important;
+        color: #F3F4F6 !important;
+        padding: 14px 0;
+        width: 100%;
+    }
 
 }
