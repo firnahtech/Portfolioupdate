@@ -881,9 +881,9 @@ body {
 /*-------MOBILE FIX---------*/
 
 /*-------MOBILE FIX---------*/
-@media (max-width: 768px) {
-  /* 1. Sync container context so elements don't squash horizontally */
-  .nav-container {
+@media (mac container context so elements don't squash horizontally */
+ x-width: 768px) {
+   .nav-container {
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between !important;
