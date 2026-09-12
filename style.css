@@ -900,21 +900,7 @@ body {
     }
 
     /* 3. Re-position desktop link items to mobile app sheet drawer format */
-    .nav-links {
-        position: fixed !important;
-        top: 70px;
-        right: -100%; /* Securely shifts navigation out of screen visibility scale */
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: #0B0F19 !important; /* Matches var(--bg-main) directly */
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        padding-top: 50px !important;
-        gap: 24px !important;
-        transition: right 0.3s ease-in-out !important;
-    }
+    
 
     /* 4. The trigger mechanism shifted via your Javascript toggle layer */
     .nav-links.active {
@@ -933,4 +919,28 @@ body {
         padding: 14px 0;
         width: 100%;
     }
+      /* 3. Re-position desktop link items to mobile app sheet drawer format */
+  .nav-links {
+    position: fixed !important;
+    top: 0;                   /* Changed from 70px to 0 to capture full screen space cleanly */
+    right: -100%;             /* Securely shifts navigation out of screen visibility scale */
+    width: 100%;
+    height: 100vh;            /* Uses standard viewport height */
+    background-color: #0B0F19 !important; /* Matches var(--bg-main) directly */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important; /* Centers your links vertically on mobile screens */
+    gap: 32px !important;
+    transition: right 0.3s ease-in-out !important;
+    z-index: 99999;           /* FIX: Forces drawer layout above main container components */
+    visibility: hidden;       /* FIX: Prevents accidental focus bugs while off-screen */
+  }
+
+  /* 4. The trigger mechanism shifted via your Javascript toggle layer */
+  .nav-links.active {
+    right: 0 !important;      /* Slides page directly into canvas view window */
+    visibility: visible;      /* FIX: Restores rendering visibility state when activated */
+  }
+
 }
