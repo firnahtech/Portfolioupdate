@@ -250,22 +250,29 @@
         </div>
     </div>
 </footer>
-
     <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
 
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        // Toggles the visibility class on the links container
-        navLinks.classList.toggle('active');
-        
-        // Optional: Animate the burger bar pieces into an 'X' close graphic
-        menuToggle.classList.toggle('is-open');
+    document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  // Select all individual text links inside the mobile menu drawer
+  const individualLinks = document.querySelectorAll('.nav-links a');
+
+  if (menuToggle && navLinks) {
+    // 1. Toggles the menu open/closed when clicking the burger button
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // 2. NEW FIX: Automatically closes the menu drawer when a link is clicked
+    individualLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active'); // Pulls the dark panel away instantly
       });
-    }
-  });
-</script>
+    });
+  }
+});
+    </script>
 
 </body>
