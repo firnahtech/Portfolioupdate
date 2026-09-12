@@ -1,24 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- Mobile Hamburger Navigation Engine ---
-    const menuToggle = document.getElementById('menu-toggle');
+ // --- Mobile Hamburger Navigation Engine ---
+const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.nav-links');
-// <-- Double check this has a capital L!
 
-menuToggle.addEventListener('click', () => {
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevents immediate document bubble conflicts
     navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active'); 
 });
 
+// Auto close side panel when clicking links
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        // Only strip the active indicator once a destination link is chosen
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+    });
+});
 
-
-        // Auto close side panel when clicking links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    
 
     // --- Dynamic Skills Tag Filter Component ---
     const filterButtons = document.querySelectorAll('.filter-btn');
