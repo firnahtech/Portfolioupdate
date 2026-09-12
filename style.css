@@ -892,12 +892,13 @@ body {
         justify-content: space-between !important;
         align-items: center !important;
     }
+  /* Fix: Ensure the toggle button stays visible on top of the open menu */
+  .menu-toggle {
+    display: flex !important;
+    position: relative;
+    z-index: 100001 !important; /* One layer higher than the navigation menu drawer */
+  }
 
-    /* 2. Unhide the structural hamburger box element */
-    .menu-toggle {
-        display: flex !important; 
-        z-index: 100000; /* Stays over drawer layer panel */
-    }
 
     /* 3. Re-position desktop link items to mobile app sheet drawer format */
     
