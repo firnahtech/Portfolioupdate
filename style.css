@@ -891,61 +891,67 @@ section {
    ========================================== */
 @media (max-width: 768px) {
   
-  /* 1. THE BURGER BUTTON (Forced visible & brought to the front) */
+  /* 1. THE BURGER BUTTON */
   .menu-toggle {
-    display: flex !important;       /* Unlocks the hidden button on mobile */
+    display: flex !important;       /* Unlocks the hidden button on mobile devices */
     position: relative;
-    z-index: 1001 !important;       /* Highest layer: sits safely on top of the menu drawer */
+    z-index: 1001 !important;       /* Layered above the panel so it doesn't disappear */
     cursor: pointer;
   }
 
-  /* Color override: turns the burger bars dark so they are visible on the white drawer */
+  /* Default state: Menu tab lines are colored white */
   .menu-toggle span, 
   .menu-toggle .bar {
-    background-color: #0B0F19 !important; 
+    background-color: #ffffff !important; 
     transition: all 0.3s ease;
   }
 
-  /* 2. THE SLIDING SIDE PANEL (Medium size, sliding from left) */
+  /* When the panel slides out, lines turn dark to remain visible on the white canvas */
+  .menu-toggle.is-open span,
+  .menu-toggle.is-open .bar {
+    background-color: #0B0F19 !important;
+  }
+
+  /* 2. THE SLIDING SIDE PANEL (Medium size & left-side alignment) */
   .nav-links {
     position: fixed;
     top: 0;
-    left: -100%;                    /* Hides the drawer completely off the left side by default */
+    left: -100%;                    /* Hides the drawer completely off the LEFT side by default */
     
-    /* Dimensions */
-    width: 250px;                   /* Medium width panel */
-    height: 100vh;                  /* Full height viewport stack */
+    /* Panel Dimensions */
+    width: 250px;                   /* MEDIUM SIZE width instead of 100% full screen */
+    height: 100vh;                  /* Extends from top to bottom viewport edge */
     
-    /* Layout Inside the Drawer */
+    /* Layout Framework */
     display: flex;
-    flex-direction: column;         /* Stacks your links vertically */
+    flex-direction: column;         /* Stacks links cleanly over each other */
     align-items: flex-start;
     gap: 24px;
     
-    /* Spacing & Aesthetics */
-    padding-top: 90px;              /* Gives plenty of room below the header bar line */
+    /* Spacing & Background Aesthetics */
+    padding-top: 90px;              /* Pushes elements down so they clear your header buttons */
     padding-left: 24px;
     padding-right: 24px;
-    background-color: #ffffff;      /* White background box drawer */
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;      /* White background box drawer panel */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15); /* Drop shadow extending to the right */
     
-    /* Layers & Animation */
-    z-index: 999;                   /* Layered right below the menu-toggle button */
-    transition: left 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth snap-out velocity */
+    /* Layers & Slide Transition Animation */
+    z-index: 999;                   /* Layered securely beneath your toggle button */
+    transition: left 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Quick, smooth slide easing */
   }
 
-  /* 3. ACTIVE DRAW STATE (Triggered when clicked via JavaScript) */
+  /* 3. ACTIVE POSITION STATE (Triggered via classList toggle in JavaScript) */
   .nav-links.active {
-    left: 0;                        /* Instantly pulls the panel flush against the left wall */
+    left: 0;                        /* Pulls the layout box cleanly into view on the left wall */
   }
 
-  /* 4. LINK TEXT STYLING INSIDE THE DRAWER */
+  /* 4. DRAWER NAV LINK LIST TEXT ELEMENT FORMATTING */
   .nav-links li {
     width: 100%;
   }
 
   .nav-links a {
-    color: #0B0F19;                 /* High contrast text color for readability against white */
+    color: #0B0F19;                 /* High-contrast dark text layout on white panel */
     font-size: 1.1rem;
     font-weight: 600;
     display: block;
@@ -954,6 +960,6 @@ section {
   }
 
   .nav-links a:hover {
-    color: var(--primary-cyan);     /* Keeps your cyan interactive brand signature */
+    color: var(--primary-cyan);     /* Brand highlight coloring on hover */
   }
 }
