@@ -885,32 +885,7 @@ section {
         padding: 24px 16px !important; /* Shrinks the inner margins of your contact form cards */
     }
 }
-@media (max-width: 768px) {
-  .nav-links {
-    /* 1. Set position to fixed and place it completely off-screen to the left */
-    position: fixed;
-    top: 0;
-    left: -100%;            /* Hides the drawer completely off the left side */
-    
-    /* 2. Define the medium drawer size */
-    width: 250px;           /* Gives the box a medium, fixed width */
-    height: 100vh;          /* Makes it full height from top to bottom */
-    
-    /* 3. Smooth animation when sliding in and out */
-    transition: left 0.3s ease-in-out;
-    
-    /* 4. Optional styling (Adjust background and spacing as needed) */
-    background-color: #fff; /* White drawer panel background */
-    padding: 80px 20px 20px; /* Top padding keeps text clear of the menu button */
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
-    z-index: 999;           /* Ensures it sits on top of all other page elements */
-  }
 
-  /* 5. When the 'active' class is added via JavaScript, slide it into view */
-  .nav-links.active {
-    left: 0;                /* Brings the drawer neatly to the left edge */
-  }
-}
 /* =================================*********
    CRITICAL RESPONSIVE ADAPTIVE BREAKPOINT
 ============================================ */
