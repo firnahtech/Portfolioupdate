@@ -885,69 +885,31 @@ section {
         padding: 24px 16px !important; /* Shrinks the inner margins of your contact form cards */
     }
 }
-
-/* =================================*********
-   CRITICAL RESPONSIVE ADAPTIVE BREAKPOINT
-============================================ */
 @media (max-width: 768px) {
-    /* 1. Force the layout bar to display items on polar opposite sides */
-    .nav-container {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-    }
-  /* Fix: Ensure the toggle button stays visible on top of the open menu */
-  .menu-toggle {
-    display: flex !important;
-    position: relative;
-    z-index: 100001 !important; /* One layer higher than the navigation menu drawer */
-  }
-
-
-    /* 3. Re-position desktop link items to mobile app sheet drawer format */
-    
-
-    /* 4. The trigger mechanism shifted via your Javascript toggle layer */
-
-
-      /* 3. Re-position desktop link items to mobile app sheet drawer format */
   .nav-links {
-    position: fixed !important;
-    top: 0;                   /* Changed from 70px to 0 to capture full screen space cleanly */
-    right: -100%;             /* Securely shifts navigation out of screen visibility scale */
-    width: 100%;
-    height: 100vh;            /* Uses standard viewport height */
-    background-color: #0B0F19 !important; /* Matches var(--bg-main) directly */
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important; /* Centers your links vertically on mobile screens */
-    gap: 32px !important;
-    transition: right 0.3s ease-in-out !important;
-    z-index: 99999;           /* FIX: Forces drawer layout above main container components */
-    visibility: hidden;       /* FIX: Prevents accidental focus bugs while off-screen */
-  }
-
-  /* 4. The trigger mechanism shifted via your Javascript toggle layer */
-  .nav-links.active {
-    right: 0 !important;      /* Slides page directly into canvas view window */
-    visibility: visible;      /* FIX: Restores rendering visibility state when activated */
-  }
+    /* 1. Set position to fixed and place it completely off-screen to the left */
+    position: fixed;
+    top: 0;
+    left: -100%;            /* Hides the drawer completely off the left side */
     
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-     .nav-links a {
-    display: block !important;
-    font-size: 1.5rem !important; 
-    color: #FFFFFF !important; /* Overrides dark themes with pure solid white text */
-    padding: 20px 0 !important;
-    width: 100%;
-    opacity: 1 !important; /* Eliminates accidental transparency issues */
-    visibility: visible !important;
+    /* 2. Define the medium drawer size */
+    width: 250px;           /* Gives the box a medium, fixed width */
+    height: 100vh;          /* Makes it full height from top to bottom */
+    
+    /* 3. Smooth animation when sliding in and out */
+    transition: left 0.3s ease-in-out;
+    
+    /* 4. Optional styling (Adjust background and spacing as needed) */
+    background-color: #fff; /* White drawer panel background */
+    padding: 80px 20px 20px; /* Top padding keeps text clear of the menu button */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
+    z-index: 999;           /* Ensures it sits on top of all other page elements */
   }
 
+  /* 5. When the 'active' class is added via JavaScript, slide it into view */
+  .nav-links.active {
+    left: 0;                /* Brings the drawer neatly to the left edge */
+  }
 }
+
+
