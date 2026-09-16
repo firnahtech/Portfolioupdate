@@ -911,5 +911,38 @@ section {
     left: 0;                /* Brings the drawer neatly to the left edge */
   }
 }
+@media (max-width: 768px) {
+  .menu-toggle {
+    /* 1. Ensure it sits on top of everything else */
+    position: relative;     /* or 'absolute' / 'fixed' depending on your header setup */
+    z-index: 1000;          /* Higher than the 999 on .nav-links so it remains visible */
+    
+    /* 2. Optional: Ensure it has high visibility colors */
+    color: #333;            /* Adjust color if it is blending into the background */
+    cursor: pointer;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;            
+    width: 250px;           
+    height: 100vh;          
+    transition: left 0.3s ease-in-out;
+    background-color: #fff; 
+    
+    /* 3. Keep this slightly lower than the toggle button */
+    z-index: 999;           
+    
+    /* 4. Keeps links below your header line so they don't overlap the button */
+    padding-top: 80px;      
+    padding-left: 20px;
+  }
+
+  .nav-links.active {
+    left: 0;                
+  }
+}
+
 
 
