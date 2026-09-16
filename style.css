@@ -897,6 +897,7 @@ section {
     position: relative;
     z-index: 1001 !important;       /* Layered above the panel so it doesn't disappear */
     cursor: pointer;
+      color: #fff;
   }
 
   /* Default state: Menu tab lines are colored white */
