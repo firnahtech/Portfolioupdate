@@ -888,30 +888,45 @@ section {
 
 /* ==========================================
    COMPLETE 768px MOBILE DESIGN SYSTEM
+   ========================================== */ 
+ /* ==========================================
+   FORCE MENU TOGGLE VISIBILITY ON BLACK HEADER
    ========================================== */
 @media (max-width: 768px) {
-  
-  /* 1. THE BURGER BUTTON */
   .menu-toggle {
-    display: flex !important;       /* Unlocks the hidden button on mobile devices */
+    /* 1. Force the element to show up and stay on top */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
-    z-index: 1001 !important;       /* Layered above the panel so it doesn't disappear */
+    z-index: 1001 !important;
+    
+    /* 2. Explicit physical dimensions so it doesn't collapse to 0px */
+    width: 28px !important;
+    height: 20px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
     cursor: pointer;
-      color: #fff;
   }
 
-  /* Default state: Menu tab lines are colored white */
-  .menu-toggle span, 
+  /* 3. Re-enforce that every line inside it must be white and visible */
+  .menu-toggle span,
   .menu-toggle .bar {
-    background-color: #ffffff !important; 
+    display: block !important;
+    width: 100% !important;
+    height: 3px !important;
+    background-color: #ffffff !important; /* Vivid white bars against black header */
+    border-radius: 3px;
     transition: all 0.3s ease;
   }
 
-  /* When the panel slides out, lines turn dark to remain visible on the white canvas */
+  /* 4. Keeps lines dark ONLY when open so they can be seen over the white sidebar */
   .menu-toggle.is-open span,
   .menu-toggle.is-open .bar {
     background-color: #0B0F19 !important;
   }
+
 
   /* 2. THE SLIDING SIDE PANEL (Medium size & left-side alignment) */
   .nav-links {
