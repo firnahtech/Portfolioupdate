@@ -886,74 +886,74 @@ section {
     }
 }
 
-/* =================================*********
-   CRITICAL RESPONSIVE ADAPTIVE BREAKPOINT
-============================================ */
+/* ==========================================
+   COMPLETE 768px MOBILE DESIGN SYSTEM
+   ========================================== */
 @media (max-width: 768px) {
-    /* 1. Force the layout bar to display items on polar opposite sides */
-    .nav-container {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-    }
-  /* Fix: Ensure the toggle button stays visible on top of the open menu */
+  
+  /* 1. THE BURGER BUTTON (Forced visible & brought to the front) */
   .menu-toggle {
-    display: flex !important;
+    display: flex !important;       /* Unlocks the hidden button on mobile */
     position: relative;
-    z-index: 1001 !important; /* One layer higher than the navigation menu drawer */
+    z-index: 1001 !important;       /* Highest layer: sits safely on top of the menu drawer */
+    cursor: pointer;
   }
 
-
-  /* 3. Turn the lines dark so they are visible on your white menu background */
+  /* Color override: turns the burger bars dark so they are visible on the white drawer */
   .menu-toggle span, 
   .menu-toggle .bar {
     background-color: #0B0F19 !important; 
+    transition: all 0.3s ease;
   }
 
-    /* 3. Re-position desktop link items to mobile app sheet drawer format */
-    
-
-    /* 4. The trigger mechanism shifted via your Javascript toggle layer */
-
-
-      /* 3. Re-position desktop link items to mobile app sheet drawer format */
+  /* 2. THE SLIDING SIDE PANEL (Medium size, sliding from left) */
   .nav-links {
-    position: fixed !important;
-    top: 0;                   /* Changed from 70px to 0 to capture full screen space cleanly */
-    right: -100%;             /* Securely shifts navigation out of screen visibility scale */
-    width: 100%;
-    height: 100vh;            /* Uses standard viewport height */
-    background-color: #0B0F19 !important; /* Matches var(--bg-main) directly */
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important; /* Centers your links vertically on mobile screens */
-    gap: 32px !important;
-    transition: right 0.3s ease-in-out !important;
-    z-index: 99999;           /* FIX: Forces drawer layout above main container components */
-    visibility: hidden;       /* FIX: Prevents accidental focus bugs while off-screen */
-  }
-
-  /* 4. The trigger mechanism shifted via your Javascript toggle layer */
-  .nav-links.active {
-    right: 0 !important;      /* Slides page directly into canvas view window */
-    visibility: visible;      /* FIX: Restores rendering visibility state when activated */
-  }
+    position: fixed;
+    top: 0;
+    left: -100%;                    /* Hides the drawer completely off the left side by default */
     
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-     .nav-links a {
-    display: block !important;
-    font-size: 1.5rem !important; 
-    color: #FFFFFF !important; /* Overrides dark themes with pure solid white text */
-    padding: 20px 0 !important;
-    width: 100%;
-    opacity: 1 !important; /* Eliminates accidental transparency issues */
-    visibility: visible !important;
+    /* Dimensions */
+    width: 250px;                   /* Medium width panel */
+    height: 100vh;                  /* Full height viewport stack */
+    
+    /* Layout Inside the Drawer */
+    display: flex;
+    flex-direction: column;         /* Stacks your links vertically */
+    align-items: flex-start;
+    gap: 24px;
+    
+    /* Spacing & Aesthetics */
+    padding-top: 90px;              /* Gives plenty of room below the header bar line */
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: #ffffff;      /* White background box drawer */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+    
+    /* Layers & Animation */
+    z-index: 999;                   /* Layered right below the menu-toggle button */
+    transition: left 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth snap-out velocity */
   }
 
+  /* 3. ACTIVE DRAW STATE (Triggered when clicked via JavaScript) */
+  .nav-links.active {
+    left: 0;                        /* Instantly pulls the panel flush against the left wall */
+  }
+
+  /* 4. LINK TEXT STYLING INSIDE THE DRAWER */
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    color: #0B0F19;                 /* High contrast text color for readability against white */
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-cyan);     /* Keeps your cyan interactive brand signature */
+  }
 }
