@@ -66,6 +66,30 @@ body {
     transition: all 0.3s ease;
     cursor: pointer;
 }
+/* Container holding the 2 buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+ .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+ .hero-buttons a,
+ .hero-buttons button {
+    width: 90%;
+    max-width: 320px;
+    justify-content: center;
+    text-align: center;
+  }
+}
 
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--accent-purple) 100%);
